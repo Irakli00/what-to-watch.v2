@@ -1,9 +1,11 @@
-import Logo from "@/app/_components/Logo";
 import Link from "next/link";
+
+import Logo from "@/app/_components/Logo";
+import NavigationLink from "../_components/NavigationLink";
 
 function Header() {
   return (
-    <header className="bg-dark-blue shadow-md h-header-height fixed left-0 right-0 z-50">
+    <header className="bg-dark-blue shadow-md ">
       <nav className="h-min font-bold text-white">
         <ul className="cusom-container flex items-center justify-between">
           <div>
@@ -14,15 +16,24 @@ function Header() {
               </Link>
             </li>
           </div>
-          <div className="flex items-center gap-4.5 text-white">
+
+          <div className="flex items-center gap-4.5">
             <li>
-              <Link href="/selectMovies">Select a Movie</Link>
+              <NavigationLink href="/movies/select">
+                Select a Movie
+              </NavigationLink>
             </li>
+
             <li>
-              <Link href="/selectAnimes">Select an Anime</Link>
+              <NavigationLink href="/animes/select">
+                Select an Anime
+              </NavigationLink>
             </li>
+
             <li>
-              <Link href="/TVs">Select a TV Show</Link>
+              <NavigationLink d href="/tvs/select">
+                Select a TV Show
+              </NavigationLink>
             </li>
           </div>
         </ul>

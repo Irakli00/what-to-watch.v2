@@ -1,0 +1,286 @@
+@import "tailwindcss";
+
+/* 🔹 Design tokens (Tailwind v4 style) */
+@theme {
+  --color-light-blue: #8ecae6;
+  --color-default-blue: #219ebc;
+  --color-dark-blue: #023047;
+  --color-bright-as-fuck-yellow: rgb(275, 290, 18);
+  --color-bright-yellow: rgb(255, 210, 48);
+  --color-bright-yellow-tint: rgb(255, 200, 0);
+  --color-light-orange: #ffb703;
+  --color-orange: #fb8500;
+  --color-main-red: #ec0800;
+  --color-bright-red: rgb(255, 81, 81);
+  --color-main-red-tint: #da1711;
+  /* --color-white-red-tint: rgba(255, 0, 0, 0.212); */
+  --color-white-red-tint: rgb(255, 217, 217);
+  --color-white-yellow-tint: rgb(275, 255, 217);
+  --color-transparent-gray: #ffffff70;
+
+  --font-sans: "Rubik", sans-serif;
+  --spacing-header-height: 105px;
+}
+
+/* main {
+  filter: revert(1);
+} */
+
+@layer base {
+  body {
+    @apply leading-none font-sans;
+  }
+
+  #root {
+    @apply min-h-dvh flex flex-col;
+  }
+
+  main {
+    @apply flex-1;
+  }
+
+  ol,
+  ul {
+    @apply list-none;
+  }
+
+  blockquote,
+  q {
+    quotes: none;
+  }
+
+  blockquote::before,
+  blockquote::after,
+  q::before,
+  q::after {
+    content: none;
+  }
+
+  table {
+    @apply border-collapse;
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+
+  .cusom-container {
+    @apply mx-auto w-[70%]  overflow-hidden;
+    max-width: none;
+  }
+}
+
+@layer components {
+  .header-link {
+    @apply p-3 rounded-md font-bold transition-all duration-200 ease-in;
+  }
+
+  .active.movies-link,
+  .header-link.movies-link:hover {
+    @apply bg-bright-yellow text-dark-blue;
+  }
+
+  .active.animes-link,
+  .animes-link:hover {
+    @apply bg-main-red text-white;
+  }
+
+  .active.TV-link,
+  .TV-link:hover {
+    @apply bg-light-blue text-dark-blue;
+  }
+
+  .card {
+    @apply overflow-y-visible flex gap-1.5 cursor-pointer h-[270px] w-full rounded-[6px] transition-all duration-200 ease-in-out relative;
+  }
+
+  .card:has(.card--simple):hover {
+    scale: 1.02;
+    z-index: 999;
+    transform: translateY(10px);
+  }
+  /* .card.card--movie:hover {
+    @apply bg-light-orange text-dark-blue;
+  }
+
+  .card.card--anime:hover {
+    @apply bg-main-red text-white;
+  } */
+  .swiper {
+    /* display: flex !important; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* min-height: 300px; */
+    /* overflow: unset !important; */
+  }
+}
+/* ---------------------- */
+
+embla {
+  max-width: 48rem;
+  margin: auto;
+  --slide-height: 19rem;
+  --slide-spacing: 1rem;
+  --slide-size: 45%;
+}
+.embla__viewport {
+  overflow: hidden;
+}
+.embla__cusom-container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+.embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: var(--slide-spacing);
+}
+.embla__slide__number {
+  box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
+  border-radius: 1.8rem;
+  font-size: 4rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--slide-height);
+  user-select: none;
+}
+.embla__controls {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin-top: 1.8rem;
+}
+.embla__buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+  align-items: center;
+}
+.embla__button {
+  -webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
+  width: 3.6rem;
+  height: 3.6rem;
+  z-index: 1;
+  border-radius: 50%;
+  color: var(--text-body);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.embla__button:disabled {
+  color: var(--detail-high-contrast);
+}
+.embla__button__svg {
+  width: 35%;
+  height: 35%;
+}
+.embla__play {
+  -webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
+  border-radius: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: flex-end;
+  color: var(--text-body);
+  font-weight: 700;
+  font-size: 1.4rem;
+  padding: 0 2.4rem;
+  min-width: 8.4rem;
+}
+.embla__progress {
+  border-radius: 1.8rem;
+  box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
+  background-color: var(--background-site);
+  position: relative;
+  height: 0.6rem;
+  justify-self: flex-end;
+  align-self: center;
+  width: 13rem;
+  max-width: 90%;
+  overflow: hidden;
+}
+.embla__progress__bar {
+  background-color: var(--text-body);
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+}
+.embla__controls {
+  grid-template-columns: auto 1fr auto;
+}
+.embla__progress {
+  justify-self: center;
+  transition: opacity 0.3s ease-in-out;
+  width: 8rem;
+}
+.embla__progress--hidden {
+  opacity: 0;
+}
+.embla__progress__bar {
+  animation-name: autoplay-progress;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+.embla__progress--hidden .embla__progress__bar {
+  animation-play-state: paused;
+}
+
+@keyframes autoplay-progress {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+.spinnerContainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  background: conic-gradient(#0000 10%, var(--dark-blue));
+  /* -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0); */
+  animation: rotate 1.5s infinite linear;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(1turn);
+  }
+}

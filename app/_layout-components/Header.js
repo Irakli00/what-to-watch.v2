@@ -5,9 +5,9 @@ import NavigationLink from "../_components/NavigationLink";
 
 function Header() {
   return (
-    <header className="bg-dark-blue shadow-md ">
-      <nav className="h-min font-bold text-white">
-        <ul className="cusom-container flex items-center justify-between">
+    <header className=" bg-dark-blue shadow-md ">
+      <nav className="m-auto container h-min font-bold text-white">
+        <ul className=" flex items-center justify-between">
           <div>
             <li>
               <Link href="/" className="flex gap-2 items-center py-3">

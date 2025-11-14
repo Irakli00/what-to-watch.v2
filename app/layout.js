@@ -1,6 +1,8 @@
 import { Rubik } from "next/font/google";
 
 import Header from "./_layout-components/Header";
+// import PageWrapper from "./_layout-components/PageWrapper";
+
 import "./globals.css";
 
 const rubik = Rubik({
@@ -20,7 +22,8 @@ function Layout({ children }) {
     <html lang="en">
       <body className={`${rubik.className}`}>
         <Header></Header>
-        {children}
+        {/* <PageWrapper>{children}</PageWrapper> */}
+        <main>{children}</main>
       </body>
     </html>
   );

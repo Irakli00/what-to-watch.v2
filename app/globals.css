@@ -19,7 +19,6 @@
   --color-transparent-gray: #ffffff70;
 
   --font-sans: "Rubik", sans-serif;
-  --spacing-header-height: 105px;
 }
 
 /* main {
@@ -28,11 +27,7 @@
 
 @layer base {
   body {
-    @apply leading-none font-sans;
-  }
-
-  #root {
-    @apply min-h-dvh flex flex-col;
+    @apply min-h-dvh leading-none font-sans flex flex-col;
   }
 
   main {
@@ -284,3 +279,17 @@ embla {
     transform: rotate(1turn);
   }
 }
+/* -------------------------------------- */
+/* @keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-in forwards;
+} */
+/* -------------------------------------- */

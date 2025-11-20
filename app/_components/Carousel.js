@@ -1,12 +1,31 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import SimpleCard from "./SimpleCard";
 
-function Carousel({ data }) {
+function Carousel({
+  data,
+  slidesPerView = 10,
+  speed = 6000,
+  autoplay = { delay: 0, disableOnInteraction: true, pauseOnMouseEnter: true },
+}) {
   return (
-    <Swiper>
+    // may change to server
+    <Swiper
+      slidesPerView={slidesPerView}
+      centeredSlides={true}
+      modules={[Autoplay]}
+      autoplay={autoplay || {}}
+      loop={true}
+      speed={speed}
+    >
       {data.map((el, i) => (
         <SwiperSlide key={i}>
-          <h1>{el.title.romaji}</h1>
+          <SimpleCard
+            id={el.id}
+            type="anime"
+            img={el.coverImage.large}
+          ></SimpleCard>
         </SwiperSlide>
       ))}
     </Swiper>

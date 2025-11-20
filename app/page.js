@@ -12,10 +12,9 @@ async function Page() {
   };
 
   const data = await lookUp[preferedMedia]();
-
   return (
-    <section className="bg-light-blue ">
-      <div className="m-auto container">
+    <section className="bg-light-blue p-2">
+      <div className="m-auto container overflow-x-clip">
         <TrendingHeader></TrendingHeader>
         <Carousel data={data}></Carousel>
       </div>

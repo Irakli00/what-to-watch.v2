@@ -4,25 +4,22 @@ import Link from "next/link";
 
 export default function NavigationLink({ children, href }) {
   const pathname = usePathname();
-  const navLinks = [
-    {
-      href: "/movies/select",
+  const navLinks = {
+    "/movie/select": {
       activeStyle: "bg-bright-yellow text-dark-blue",
       hoverStyle: "hover:bg-bright-yellow hover:text-dark-blue",
     },
-    {
-      href: "/animes/select",
+    "/anime/select": {
       activeStyle: "bg-main-red text-white",
       hoverStyle: "hover:bg-main-red hover:text-white",
     },
-    {
-      href: "/tvs/select",
+    "/tv/select": {
       activeStyle: "bg-light-blue text-dark-blue",
       hoverStyle: "hover:bg-light-blue hover:text-dark-blue",
     },
-  ];
+  };
 
-  const styleToApply = navLinks.find((link) => link.href === href) ?? {
+  const styleToApply = navLinks[href] ?? {
     activeStyle: "",
     hoverStyle: "",
   };

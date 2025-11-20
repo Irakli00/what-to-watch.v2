@@ -19,19 +19,19 @@ function Header() {
 
           <div className="flex items-center gap-4.5">
             <li>
-              <NavigationLink href="/movies/select">
+              <NavigationLink href="/movie/select">
                 Select a Movie
               </NavigationLink>
             </li>
 
             <li>
-              <NavigationLink href="/animes/select">
+              <NavigationLink href="/anime/select">
                 Select an Anime
               </NavigationLink>
             </li>
 
             <li>
-              <NavigationLink d href="/tvs/select">
+              <NavigationLink d href="/tv/select">
                 Select a TV Show
               </NavigationLink>
             </li>

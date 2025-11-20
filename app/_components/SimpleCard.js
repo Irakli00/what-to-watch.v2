@@ -10,10 +10,11 @@ function SimpleCard({ id, type = "anime", img = "", onClick = null }) {
       relative="path"
       className="card card--simple"
     >
-      <img
+      <Image
         draggable="false"
         src={img}
-        // className={`h-[280px] rounded-[7px] select-none `}
+        width={290}
+        height={220}
         alt={`${type} poster`}
         className={`rounded-[7px] select-none`}
       />

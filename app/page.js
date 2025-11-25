@@ -3,7 +3,7 @@ import { getTrendingMovies } from "./services/tmdb";
 import TrendingHeader from "./_components/TrendingHeader";
 import Carousel from "./_components/Carousel";
 import CustomLink from "./_components/CustomLink";
-
+//questions IN LOCALSTORAGE, QUIZZS IN SESSION
 async function Page() {
   const preferedMedia = "anime";
   const lookUp = {
@@ -33,10 +33,10 @@ async function Page() {
         </p>
 
         <div className="flex justify-center items-center gap-28">
-          <CustomLink to="/movie/select" type="movie">
+          <CustomLink to="select/movie" type="movie">
             Choose a Movie
           </CustomLink>
-          <CustomLink to="/anime/select" type="anime">
+          <CustomLink to="select/anime" type="anime">
             Choose an Anime
           </CustomLink>
         </div>
